@@ -26,7 +26,7 @@ export function init(app: express.Application): void {
 
     /**
     * @description
-    *  Forwards any requests to the /v1/users URI to our HotelRouter
+    *  Forwards any requests to the /hotels URI to our HotelRouter
     *  Also, check if user authenticated
     * @constructs
     */

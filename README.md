@@ -124,7 +124,7 @@ example start with scale on 2 core:
 pm2 start ./src/index.ts -i 2 --no-daemon
 ```
 
-Express server listening on http://localhost:3000/, in development mode
+Express server listening on http://localhost:4000/, in development mode
 The developer mode will watch your changes then will transpile the TypeScript code and re-run the node application automatically.
 
 ### Testing
@@ -147,7 +147,7 @@ swagger-jsdoc -d swaggerDef.js -o swagger.json
 ```
 Swagger documentation will be available on route: 
 ```bash
-http://localhost:3000/docs
+http://localhost:4000/docs
 ```
 ![Alt Text](https://i.ibb.co/b6SdyQV/gif1.gif)
 

@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000"
+      "url": "http://localhost:4000"
     }
   ],
   "paths": {
@@ -122,13 +122,13 @@
         ],
         "responses": {
           "200": {
-            "description": "An array of users",
+            "description": "An array of hotels",
             "content": {
               "application/json": {
                 "schema": {
                   "oneOf": [
                     {
-                      "$ref": "#/components/schemas/Users"
+                      "$ref": "#/components/schemas/HotelSchema"
                     }
                   ]
                 }
@@ -141,6 +141,140 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "description": "Create new Hotel",
+        "tags": [
+          "hotels"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "requestBody": {
+          "description": "hotel creation request body",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HotelSchema"
+              },
+              "example": {
+                "name": "hotel Ejemplo",
+                "stars": 5,
+                "images": [
+                  "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
+                ],
+                "price": 1000
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "return created hotel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/HotelSchema"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hotels/{id}": {
+      "get": {
+        "description": "Get hotel by Id",
+        "tags": [
+          "hotels"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "the unique Id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return hotel by id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/HotelSchema"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "description": "Elimina hotel por Id",
+        "tags": [
+          "hotels"
+        ],
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "the unique hotelId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "return deleted hotel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/HotelSchema"
+                    }
+                  ]
                 }
               }
             }
@@ -338,15 +472,14 @@
             "type": "array"
           },
           "price": {
-            "type": "string",
-            "format": "date"
+            "type": "string"
           }
         }
       },
-      "Users": {
+      "Hotels": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/UserSchema"
+          "$ref": "#/components/schemas/HotelSchema"
         }
       },
       "UserSchema": {
@@ -377,6 +510,12 @@
           "tokens": {
             "type": "array"
           }
+        }
+      },
+      "Users": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/UserSchema"
         }
       },
       "Error": {

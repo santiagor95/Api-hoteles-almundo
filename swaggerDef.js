@@ -6,10 +6,10 @@ module.exports = {
         // API informations (required)
         title: 'Node-Typescript API', // Title (required)
         version: '1.0.0', // Version (required)
-        description: 'A sample API', // Description (optional)
+        description: 'API Rest para aplicacion de hoteles', // Description (optional)
     },
     servers: [
-        { url: 'http://localhost:3000' }
+        { url: 'http://localhost:4000' }
     ],
     apis: [path.join(__dirname, './src/**/**/*.ts')]
 };

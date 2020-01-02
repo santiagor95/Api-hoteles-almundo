@@ -34,13 +34,12 @@ export interface IHotelModel extends Document {
  *          type: array
  *        price:
  *          type: string
- *          format: date
- *    Users:
+ *    Hotels:
  *      type: array
  *      items:
- *        $ref: '#/components/schemas/UserSchema'
+ *        $ref: '#/components/schemas/HotelSchema'
  */
-const UserSchema: Schema<any> = new Schema({
+const HotelSchema: Schema<any> = new Schema({
     name: String,
     stars: String,
     images: Array,
@@ -49,22 +48,22 @@ const UserSchema: Schema<any> = new Schema({
     collection: 'hotel',
     versionKey: false
 }).pre('save', async function (next: NextFunction): Promise<void> {
-    const user: any = this; // tslint:disable-line
+    const hotel: any = this; // tslint:disable-line
 
-    if (!user.isModified('password')) {
+    if (!hotel.isModified('password')) {
         return next();
     }
 
     try {
         const salt: string = await bcrypt.genSalt(10);
 
-        const hash: string = await bcrypt.hash(user.password, salt);
+        const hash: string = await bcrypt.hash(hotel.password, salt);
 
-        user.password = hash;
+        hotel.password = hash;
         next();
     } catch (error) {
         return next(error);
     }
 });
 
-export default connections.db.model<IHotelModel>('HotelModel', UserSchema);
+export default connections.db.model<IHotelModel>('HotelModel', HotelSchema);

@@ -2,13 +2,35 @@ import { IHotelModel } from './model';
 
 /**
  * @export
- * @interface IUserService
+ * @interface IHotelService
  */
-export interface IUserService {
+export interface IHotelService {
 
     /**
-     * @returns {Promise<IUserModel[]>}
-     * @memberof IUserService
+     * @returns {Promise<IHotelModel[]>}
+     * @memberof IHotelService
      */
     findAll(): Promise<IHotelModel[]>;
+
+    /**
+     * @param {string} code
+     * @returns {Promise<IHotelModel>}
+     * @memberof IHotelService
+     */
+
+    findOne(code: string): Promise<IHotelModel>;
+
+    /**
+     * @param {IHotelModel} IHotelModel
+     * @returns {Promise<IHotelModel>}
+     * @memberof IHotelService
+     */
+    insert(IHotelModel: IHotelModel): Promise<IHotelModel>;
+
+    /**
+     * @param {string} id
+     * @returns {Promise<IUserModel>}
+     * @memberof IHotelService
+     */
+    remove(id: string): Promise<any>;
 }
