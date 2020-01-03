@@ -3,7 +3,7 @@
   "info": {
     "title": "Node-Typescript API",
     "version": "1.0.0",
-    "description": "A sample API"
+    "description": "API Rest para aplicacion de hoteles"
   },
   "servers": [
     {
