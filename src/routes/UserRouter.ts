@@ -10,9 +10,9 @@ const router: Router = Router();
 
 /**
  * GET method route
- * @example http://localhost:PORT/v1/users
+ * @example http://localhost:PORT/users
  * @swagger
- * /v1/users:
+ * /users:
  *   get:
  *     description: Obtiene todos los usuarios de Database
  *     tags: ["users"]
@@ -37,9 +37,9 @@ router.get('/', userComponent.findAll);
 
 /**
  * POST method route
- * @example http://localhost:PORT/v1/users
+ * @example http://localhost:PORT/users
  * @swagger
- * /v1/users:
+ * /users:
  *   post:
  *      description: Create new User
  *      tags: ["users"]
@@ -74,9 +74,9 @@ router.post('/', userComponent.create);
 
 /**
  * GET method route
- * @example http://localhost:PORT/v1/users/:id
+ * @example http://localhost:PORT/users/:id
  * @swagger
- * /v1/users/{id}:
+ * /users/{id}:
  *  get:
  *    description: Get user by userId
  *    tags: ["users"]
@@ -102,9 +102,9 @@ router.get('/:id', userComponent.findOne);
 
 /**
  * DELETE method route
- * @example  http://localhost:PORT/v1/users/:id
+ * @example  http://localhost:PORT/users/:id
  * @swagger
- * /v1/users/{id}:
+ * /users/{id}:
  *  delete:
  *    description: Delete user by userId
  *    tags: ["users"]

@@ -166,12 +166,12 @@
                 "$ref": "#/components/schemas/HotelSchema"
               },
               "example": {
-                "name": "hotel Ejemplo",
+                "name": "hotel de prueba",
                 "stars": 5,
                 "images": [
                   "https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg"
                 ],
-                "price": 1000
+                "price": 1500
               }
             }
           }
@@ -282,7 +282,7 @@
         }
       }
     },
-    "/v1/users": {
+    "/users": {
       "get": {
         "description": "Obtiene todos los usuarios de Database",
         "tags": [
@@ -373,7 +373,7 @@
         }
       }
     },
-    "/v1/users/{id}": {
+    "/users/{id}": {
       "get": {
         "description": "Get user by userId",
         "tags": [

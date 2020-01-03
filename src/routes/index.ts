@@ -38,7 +38,7 @@ export function init(app: express.Application): void {
      *  Also, check if user authenticated
      * @constructs
      */
-    app.use('/v1/users', jwtConfig.isAuthenticated, UserRouter);
+    app.use('/users', jwtConfig.isAuthenticated, UserRouter);
 
     /**
      * @description Forwards any requests to the /auth URI to our AuthRouter
@@ -46,12 +46,7 @@ export function init(app: express.Application): void {
      */
     app.use('/auth', AuthRouter);
 
-    /**
-     * @description
-     *  If swagger.json file exists in root folder, shows swagger api description
-     *  else send commands, how to get swagger.json file
-     * @constructs
-     */
+
     if (swaggerDoc) {
         app.use('/docs', swaggerUi.serve);
         app.get('/docs', swaggerUi.setup(swaggerDoc));
