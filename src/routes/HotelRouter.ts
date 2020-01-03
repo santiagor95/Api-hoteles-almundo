@@ -53,10 +53,10 @@ router.get('/', hotelComponent.findAll);
  *            schema:
  *              $ref: '#/components/schemas/HotelSchema'
  *            example:
- *               name: hotel Ejemplo
+ *               name: hotel de prueba
  *               stars: 5
  *               images: ['https://www.hiltonhotels.com/assets/img/Hotel%20Images/Hilton/G/GYEHIHF/GYEHIHF_quicklook_full_exterior01.jpg']
- *               price: 1000
+ *               price: 1500
  *      responses:
  *        201:
  *          description: return created hotel
